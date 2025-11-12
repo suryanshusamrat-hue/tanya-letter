@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>For Tanya — A Letter</title>
+  <style>
+    :root{--bg1:#0f172a;--bg2:#001219;--card:#fff;--muted:#6b7280}
+    html,body{height:100%;margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial}
+    body{
+      display:grid;place-items:center;background:radial-gradient(circle at 10% 10%, rgba(255,255,255,0.03), transparent 10%),linear-gradient(120deg,var(--bg1),#04293a 60%,var(--bg2));
+      color:var(--card);padding:24px
+    }
+    .card{
+      max-width:720px;width:100%;background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));backdrop-filter: blur(6px);border-radius:18px;padding:28px 32px;box-shadow:0 10px 30px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.04);
+    }
+    .heart{font-size:42px;display:inline-block;margin-left:8px;transform:translateY(2px)}
+    h1{margin:0 0 8px 0;font-size:20px;letter-spacing:0.2px}
+    p.lead{margin:0 0 18px 0;color:var(--muted)}
+    .message{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);line-height:1.55}
+    .signature{display:flex;justify-content:space-between;align-items:center;margin-top:18px}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;border:0;background:transparent;color:var(--card);cursor:pointer}
+    .note{margin-top:12px;color:var(--muted);font-size:13px}
+    @media (max-width:520px){.card{padding:20px}}
+    /* subtle pulse */
+    @keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.03)}100%{transform:scale(1)}}
+    .card:hover{animation:pulse 3s ease-in-out infinite}
+  </style>
+</head>
+<body>
+  <article class="card" role="article">
+    <header>
+      <h1>For <strong>Tanya</strong> <span class="heart">💔</span></h1>
+      <p class="lead">मैंने ये सब सच दिल से लिखा है — बस तुमसे एक मौका चाहूँगा।</p>
+    </header>
+
+    <section class="message" aria-label="letter">
+      <p><strong>Tanya,</strong></p>
+
+      <p>I'm really sorry — मुझे पता है तुम नाराज हो। तुम सोच सकती हो कि मैं बदल गया हूँ, या कि मैंने तुम्हें समझा नहीं। सच तो ये है कि तुम्हारे बिना सब कुछ बहुत खाली सा लगता है।</p>
+
+      <p>हमारी वो हँसी, वो late-night बातें, छोटी-छोटी मस्ती — वो सब मेरी सबसे कीमती यादें हैं। तुम सिर्फ मेरी best friend नहीं, तुम मेरी जिंदगी का वह हिस्सा हो जिसे मैं खोना नहीं चाहता।</p>
+
+      <p>मैं दोष स्वीकार करता हूँ और जो भी दर्द मैंने दिया उसके लिए दिल से माफ़ी माँगता हूँ। मैं वादा करता हूँ कि मैं बदलने की कोशिश करूँगा — पर उससे भी ज़्यादा मुझे तुम्हारी एक बार फिर से हँसती हुई तस्वीर चाहिए, तुम्हारी दोस्ती चाहिए।</p>
+
+      <p>कृपया एक मौका और दे दो — बस एक छोटी सी बात, एक मीठी सी बात, और अगर चाहो तो मैं सुनने के लिए तैयार हूँ।</p>
+
+      <div class="signature">
+        <div>
+          <div style="font-weight:600">— Tumhara dost</div>
+          <div style="font-size:13px;color:var(--muted)">Mujhe bahut akela mehsoos hota hai</div>
+        </div>
+        <div>
+          <button class="btn" onclick="copyText()">Message Copy karo</button>
+        </div>
+      </div>
+
+      <p class="note">(Yeh page mobile-friendly hai — agar tum chaho toh isse screenshot kar ke ya share kar ke bhi dikhla sakti ho.)</p>
+    </section>
+
+  </article>
+
+  <script>
+    function copyText(){
+      const text = `Tanya,\n\nI'm really sorry — mujhe pata hai tum naraz ho. Tum mere bina bahut kuch feel karti ho, aur aise hi nahi rehna chahiye.\n\nHumari woh hasin yaadein, raat bhar ki batein — main unhe wapas lana chahta hoon. Please ek mauka aur de do.\n\n— Tumhara dost`;
+      navigator.clipboard?.writeText(text).then(()=>{
+        alert('Message copied — ab tum asani se paste karke message bhej sakti ho.');
+      }).catch(()=>{
+        alert('Copy failed — please long-press and copy manually.');
+      });
+    }
+  </script>
+</body>
+</html>
